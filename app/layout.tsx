@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Ovo } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Home/Nav";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const ovo = Ovo({subsets: ['latin'], weight: '400'});
 
@@ -16,13 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body
         className={ovo.className}
-      >
+        >
         <Nav />
         {children}
       </body>
     </html>
+        </ClerkProvider>
   );
 }
