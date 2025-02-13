@@ -3,6 +3,7 @@ import { Ovo } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Home/Nav";
 import { ClerkProvider } from "@clerk/nextjs";
+import Footer from "@/components/Home/Footer";
 
 const ovo = Ovo({subsets: ['latin'], weight: '400'});
 
@@ -24,6 +25,7 @@ export default function RootLayout({
         >
         <Nav />
         {children}
+        <Footer />
       </body>
     </html>
         </ClerkProvider>
