@@ -68,7 +68,7 @@ const ProductDetails = async ({params}: {params: {id: string}}) => {
                 SKU : {Math.random()*500}
             </p>
             {/* add to cart button */}
-            <AddToCart />
+            <AddToCart product={singleProduct}/>
         </div>
         </div>
         <div className="w-4/5 mt-16 mx-auto">
