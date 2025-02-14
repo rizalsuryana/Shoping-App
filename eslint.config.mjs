@@ -1,16 +1,25 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import globals from 'globals';
+import pluginJs from '@eslint/js';
+import tseslint from 'typescript-eslint';
+import pluginReact from 'eslint-plugin-react';
+import airbnb from 'eslint-config-airbnb';
+import daStyle from 'eslint-config-dicodingacademy';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+  { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
+  { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+  daStyle,
+  {
+    rules: {
+      'quotes': ['error', 'single'], // Bisa ganti "double" jika ingin kutip ganda
+      'react/jsx-filename-extension': ['warn', { 'extensions': ['.jsx', '.tsx'] }],
+      'import/extensions': 'off',
+      'no-console': 'warn', // Aturan tambahan, bisa diubah sesuai kebutuhan
+    }
+  }
 ];
-
-export default eslintConfig;
