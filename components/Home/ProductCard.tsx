@@ -18,9 +18,6 @@ const ProductCard = ({product}:Props) => {
     const num = Math.round(product.rating.rate)
     const ratingArray = new Array(num).fill(0);
 
-    const items = useSelector((state:RootState)=> state.cart.items )
-    console.log(items)
-
     const dispatch = useDispatch()
     const addToCartHandler = (product:Product) => {
         dispatch(addItem(product));
