@@ -39,10 +39,10 @@ const ProductCard = ({product}:Props) => {
         {/*  price */}
         <div className="flex mt-2 items-center space-x-2">
             <p className=' text-black text-base line-through font-semibold opacity-50'>
-                {`$${(product.price + 10).toFixed(2)}`}
+            ${product.price} 
             </p>
             <p className='text-black text-lg font-bold  opacity-80'>
-                ${product.price}
+            {`$${(product.price*0.4).toFixed(2)}`}
             </p>
         </div>
             {/* button */}

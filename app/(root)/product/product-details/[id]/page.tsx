@@ -48,8 +48,11 @@ const ProductDetails = async ({params}: {params: {id: string}}) => {
             {/* line */}
             <span className="w-1/4 h-[1.6px] bg-gray-400 rounded-lg block mt-4 opacity-20 mb-4">
             </span>
+            <span className="line-through text-gray-500">
+        ${singleProduct?.price.toFixed(2)}
+    </span>
             <h1 className='lg:text-6xl text-3xl md:text-4xl text-blue-950 font-bold'>
-                ${singleProduct?.price.toFixed(2)}
+                ${((singleProduct?.price ?? 0) * 0.4).toFixed(2)}
             </h1>
             <p className='mt-4 text-base text-black opacity-70'>
                 {singleProduct.description}
@@ -86,3 +89,4 @@ const ProductDetails = async ({params}: {params: {id: string}}) => {
 }
 
 export default ProductDetails
+
