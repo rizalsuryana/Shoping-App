@@ -1,17 +1,18 @@
-import type { Metadata } from "next";
-import { Ovo } from "next/font/google";
-import "./globals.css";
-import Nav from "@/components/Home/Nav";
-import { ClerkProvider } from "@clerk/nextjs";
-import Footer from "@/components/Home/Footer";
-import StoreProvider from "@/StoreProvider/StoreProvider";
-import { Toaster } from "@/components/ui/toaster";
+import React from 'react';
+import type { Metadata } from 'next';
+import { Ovo } from 'next/font/google';
+import './globals.css';
+import Nav from '@/components/Home/Nav';
+import { ClerkProvider } from '@clerk/nextjs';
+import Footer from '@/components/Home/Footer';
+import StoreProvider from '@/StoreProvider/StoreProvider';
+import { Toaster } from '@/components/ui/toaster';
 
-const ovo = Ovo({subsets: ['latin'], weight: '400'});
+const ovo = Ovo({ subsets: ['latin'], weight: '400' });
 
 export const metadata: Metadata = {
-  title: "Shopping App | Next JS",
-  description: "On development...",
+  title: 'Shopping App | Next JS',
+  description: 'On development...',
 };
 
 export default function RootLayout({
@@ -21,18 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <StoreProvider>
-    <ClerkProvider>
-    <html lang="en">
-      <body
-        className={ovo.className}
-        >
-        <Nav />
-        {children}
-        <Toaster/>
-        <Footer />
-      </body>
-    </html>
-        </ClerkProvider>
-          </StoreProvider>
+      <ClerkProvider>
+        <html lang="en">
+          <body
+            className={ovo.className}
+          >
+            <Nav />
+            {children}
+            <Toaster/>
+            <Footer />
+          </body>
+        </html>
+      </ClerkProvider>
+    </StoreProvider>
   );
 }
