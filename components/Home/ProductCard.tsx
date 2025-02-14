@@ -8,7 +8,6 @@ import React from 'react';
 import { Button } from '../ui/button';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '@/store/cartSlice';
-import { RootState } from '@/store/store';
 import { useToast } from '@/hooks/use-toast';
 
 type Props = {

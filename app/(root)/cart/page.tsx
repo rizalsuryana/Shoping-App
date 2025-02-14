@@ -1,15 +1,19 @@
 'use client';
 
+import PaypalButton from '@/components/Helper/PaypalButton';
 import { Button } from '@/components/ui/button';
-import { addItem, CartItem, removeItem } from '@/store/cartSlice';
+import { addItem, CartItem, clearCart, removeItem } from '@/store/cartSlice';
 import { RootState } from '@/store/store';
 import { useUser } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Cart = () => {
+  // router
+  const router = useRouter;
   const dispatch = useDispatch();
   // get our cart items
   const items = useSelector((state:RootState)=> state.cart.items);
@@ -32,6 +36,11 @@ const Cart = () => {
   //   remove item
   const removeItemHandler = (id:number) => {
     dispatch(removeItem({ id }));
+  };
+  //   handle payment success
+  const handleSuccess = (ProductDetails:any) =>{
+    router.push('/success');
+    dispatch(clearCart());
   };
 
   return (
@@ -119,9 +128,10 @@ const Cart = () => {
                 {
                   user && (
                   // paypall button
-                    <Button className='bg-orange-500 w-full'>
-                            Paypal
-                    </Button>
+                    // <Button className='bg-orange-500 w-full'>
+                    //         Paypal
+                    // </Button>
+                    <PaypalButton amount={totalPriceWithVat} onSuccess={handleSuccess}/>
                   )
                 }
               </div>
