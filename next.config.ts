@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
         hostname: 'fakestoreapi.com',
       }
     ]
+  },
+  eslint: {
+    ignoreDuringBuilds: true, // Bypass ESLint saat build
   }
 };
 

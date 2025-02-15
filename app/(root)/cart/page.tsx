@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Cart = () => {
   // router
-  const router = useRouter;
+  const router = useRouter();
   const dispatch = useDispatch();
   // get our cart items
   const items = useSelector((state:RootState)=> state.cart.items);

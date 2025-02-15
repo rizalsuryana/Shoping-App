@@ -6,8 +6,8 @@ import React from 'react';
 import AddToCart from './add-cart';
 import ProductCard from '@/components/Home/ProductCard';
 
-const ProductDetails = async ({ params }: {params: {id: string}}) => {
-  const id = params.id;
+const ProductDetails = async ({ params }: {params: Promise<{ id: string }>}) => {
+  const {id} = await params;
   const singleProduct: Product= await getSingleProduct(id);
   const relatedProduct: Product[] = await getProductBycategory(singleProduct.category);
 
@@ -89,4 +89,3 @@ const ProductDetails = async ({ params }: {params: {id: string}}) => {
 };
 
 export default ProductDetails;
-
