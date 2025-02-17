@@ -20,3 +20,9 @@ body {
     @apply text-black text-[15px] opacity-90 mb-4 w-fit cursor-pointer hover:text-yellow-600
   }
 }
+
+.item-shop {
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 0.2rem;
+
+}
