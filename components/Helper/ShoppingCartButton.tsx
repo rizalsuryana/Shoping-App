@@ -1,6 +1,6 @@
 'use client';
 import { RootState } from '@/store/store';
-import { ShoppingBagIcon } from 'lucide-react';
+import {FaShoppingCart} from 'react-icons/fa'
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
@@ -19,7 +19,7 @@ const ShoppingCartButton = () => {
         bg-red-500 text-white rounded-full'>
             {totalQuantity}
           </span>
-          <ShoppingBagIcon cursor={'pointer'} size={26}/>
+          <FaShoppingCart cursor={'pointer'} size={26}/>
         </div>
       </SheetTrigger>
       <SheetContent className='overflow-auto h-full'>

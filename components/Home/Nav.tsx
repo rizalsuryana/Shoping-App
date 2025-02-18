@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import SearcBox from '../Helper/SearcBox';
-import { HeartIcon, UserIcon } from 'lucide-react';
 import ShoppingCartButton from '../Helper/ShoppingCartButton';
+import { FaRegHeart, FaRegUserCircle } from 'react-icons/fa';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 
 const Nav = () => {
@@ -18,7 +18,7 @@ const Nav = () => {
         <div className="flex items-center space-x-6">
           {/* searcbox */}
           <SearcBox />
-          <HeartIcon size={26} cursor={'pointer'} />
+          <FaRegHeart size={26} cursor={'pointer'} />
           {/* Shopping card button */}
           <ShoppingCartButton />
           {/* signin user */}
@@ -29,7 +29,7 @@ const Nav = () => {
           <SignedOut>
             <SignInButton>
               {/* user button */}
-              <UserIcon size={26} cursor={'pointer'} />
+              <FaRegUserCircle size={26} cursor={'pointer'} />
             </SignInButton>
           </SignedOut>
         </div>

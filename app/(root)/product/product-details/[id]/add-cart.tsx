@@ -5,6 +5,7 @@ import { addItem,  } from '@/store/cartSlice';
 import { Product } from '@/typing';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { FaCartPlus } from 'react-icons/fa';
 
 const AddToCart = ({ product }:{product:Product}) => {
   const dispatch = useDispatch();
@@ -20,8 +21,10 @@ const AddToCart = ({ product }:{product:Product}) => {
   };
 
   return (
-    <Button onClick={()=> addCartHandler()} className='mt-6'>
-        Add To Cart
+    <Button onClick={()=> addCartHandler()} className='mt-6  bg-blue-500 hover:bg-blue-600
+         text-white'>
+      <FaCartPlus />
+        <span>Add To Cart</span>
     </Button>
   );
 };
